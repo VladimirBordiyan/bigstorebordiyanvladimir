@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CartPage;
 
 public class CartPageTest {
-
     private WebDriver driver;
     private CartPage cartPage;
 

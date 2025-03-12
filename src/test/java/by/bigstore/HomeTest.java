@@ -5,15 +5,23 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.CartPage;
 import pages.HomePage;
 
 public class HomeTest {
+    private WebDriver driver;
+    private HomePage homePage;
 
     @BeforeEach
     public void setUp() {
-        HomePage homePage = new HomePage();
-        homePage.openWebsite();;
-          }
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        homePage = new HomePage();
+        homePage.openWebsite();
+        homePage.closeCookies();
+    }
 
     @Test
     public void testHomePageOpend() {
