@@ -12,13 +12,13 @@ public class HomeTest {
     @BeforeEach
     public void setUp() {
         HomePage homePage = new HomePage();
-        homePage.open();
+        homePage.openWebsite();;
           }
 
     @Test
     public void testHomePageOpend() {
         HomePage homePage = new HomePage();
-        homePage.open();
+        homePage.openWebsite();
         String actual = homePage.getDivContainsText();
         Assertions.assertEquals("© 2015-2025 7745.by", actual);
     }

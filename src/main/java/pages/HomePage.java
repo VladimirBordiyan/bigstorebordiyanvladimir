@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
     public final By DIV_CONTAINS_LOCATOR = By.xpath("// div//*[contains(text(), '2015-2025')]");
+    private final By ClOSE_COOKIES_LOCATOR = By.xpath("//button[@class=\"btn btn-orange js-accept-cookies\"]");
     private final String URL = "https://7745.by/";
 
     private WebDriver driver;
@@ -15,8 +16,12 @@ public class HomePage {
         this.driver = Singleton.getDriver();
     }
 
-    public void open() {
+    public void openWebsite() {
         driver.get(URL);
+    }
+
+    public void closeCookies() {
+        driver.findElement(ClOSE_COOKIES_LOCATOR).click();
     }
 
     public String getDivContainsText() {
