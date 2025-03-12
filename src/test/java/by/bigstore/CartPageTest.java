@@ -19,7 +19,7 @@ public class CartPageTest {
         driver.manage().window().maximize();
         cartPage = new CartPage(driver);
         cartPage.openWebsite();
-        cartPage.closeCoockies();
+        cartPage.closeCookies();
     }
 
     @Test
