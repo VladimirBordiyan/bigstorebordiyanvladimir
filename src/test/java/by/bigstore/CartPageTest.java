@@ -15,31 +15,25 @@ public class CartPageTest {
 
     @BeforeEach
     public void setUp() {
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         cartPage = new CartPage(driver);
         cartPage.openWebsite();
+        cartPage.closeCoockies();
     }
 
     @Test
     public void testAddProductToCart() {
-        // Открываем каталог
         cartPage.openCatalog();
 
-        // Выбираем категорию "Электроинструмент"
         cartPage.selectCategory();
 
-        // Переходим на вкладку "Дрели"
         cartPage.selectPowerToolsDrill();
 
-        // Выбираем нужную дрель
         cartPage.selectDrill();
 
-        // Добавляем товар в корзину
         cartPage.addToCart();
 
-        // Переход в корзину
         cartPage.goToCart();
 
         String product = cartPage.getCartProductTitle();

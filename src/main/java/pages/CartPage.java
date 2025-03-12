@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,6 +21,7 @@ public class CartPage {
     private final By BUTTON_CART_LOCATOR = By.xpath("//button[@class=\"btn btn-orange btn-buy \"]");
     private final By CART_PAGE_LOCATOR = By.xpath("//div[@class=\"svg-icon header-icon__icon--cart\"]");
     private final By CART_PRODUCT_TITLE_LOCATOR = By.xpath("//div[@class=\"product-item__title\"]");
+    private final By ClOSE_COOCKIES_LOCATOR = By.xpath("//button[@class=\"btn btn-orange js-accept-cookies\"]");
     private final String URL = "https://7745.by/";
 
     public CartPage(WebDriver driver) {
@@ -27,7 +29,11 @@ public class CartPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-      public void openWebsite() {
+    public void closeCoockies() {
+        driver.findElement(ClOSE_COOCKIES_LOCATOR).click();
+    }
+
+    public void openWebsite() {
         driver.get(URL);
     }
 
@@ -44,7 +50,10 @@ public class CartPage {
     }
 
     public void selectDrill() {
-        wait.until(ExpectedConditions.elementToBeClickable(BUTTON_SELECT_DRILL_LOCATOR)).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(BUTTON_SELECT_DRILL_LOCATOR));
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
+        element.click();
     }
 
     public void addToCart() {
