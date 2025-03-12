@@ -9,40 +9,43 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CartPage;
 
 public class CartPageTest {
+
     private WebDriver driver;
     private CartPage cartPage;
 
     @BeforeEach
     public void setUp() {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         cartPage = new CartPage(driver);
 
-        driver.get("https://7745.by/");
+        cartPage.openWebsite();
     }
 
     @Test
     public void testAddProductToCart() {
-
+        // Открываем каталог
         cartPage.openCatalog();
 
+        // Выбираем категорию "Электроинструмент"
         cartPage.selectCategory();
 
+        // Переходим на вкладку "Дрели"
         cartPage.selectPowerToolsDrill();
 
-
-        cartPage.selectWortexBrand();
-
-        cartPage.clickSearchButton();
-
+        // Выбираем нужную дрель
         cartPage.selectDrill();
 
+        // Добавляем товар в корзину
         cartPage.addToCart();
 
+        // Переход в корзину
         cartPage.goToCart();
 
-        Assertions.assertTrue(cartPage.isProductInCart(), "Дрель ударная WORTEX DS 1308 (DS130800029)");
+        String productTitle = cartPage.getCartProductTitle();
+        Assertions.assertEquals(productTitle, "Дрель ударная WORTEX DS 1308 (DS130800029)", productTitle);
     }
 
     @AfterEach
@@ -52,4 +55,3 @@ public class CartPageTest {
         }
     }
 }
-
