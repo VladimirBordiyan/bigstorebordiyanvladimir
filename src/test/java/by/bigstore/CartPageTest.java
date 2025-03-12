@@ -18,9 +18,7 @@ public class CartPageTest {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
         cartPage = new CartPage(driver);
-
         cartPage.openWebsite();
     }
 
@@ -44,8 +42,8 @@ public class CartPageTest {
         // Переход в корзину
         cartPage.goToCart();
 
-        String productTitle = cartPage.getCartProductTitle();
-        Assertions.assertEquals(productTitle, "Дрель ударная WORTEX DS 1308 (DS130800029)", productTitle);
+        String product = cartPage.getCartProductTitle();
+        Assertions.assertEquals(product, "Дрель ударная WORTEX DS 1308 (DS130800029)", product);
     }
 
     @AfterEach
