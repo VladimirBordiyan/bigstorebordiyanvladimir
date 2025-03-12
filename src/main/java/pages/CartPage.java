@@ -21,7 +21,7 @@ public class CartPage {
     private final By BUTTON_CART_LOCATOR = By.xpath("//button[@class=\"btn btn-orange btn-buy \"]");
     private final By CART_PAGE_LOCATOR = By.xpath("//div[@class=\"svg-icon header-icon__icon--cart\"]");
     private final By CART_PRODUCT_TITLE_LOCATOR = By.xpath("//div[@class=\"product-item__title\"]");
-    private final By ClOSE_COOKIES_LOCATOR = By.xpath("//button[@class=\"btn btn-orange js-accept-cookies\"]");
+    private final By CLOSE_COOKIES_LOCATOR = By.xpath("//button[@class=\"btn btn-orange js-accept-cookies\"]");
     private final String URL = "https://7745.by/";
 
     public CartPage(WebDriver driver) {
@@ -30,7 +30,7 @@ public class CartPage {
     }
 
     public void closeCookies() {
-        driver.findElement(ClOSE_COOKIES_LOCATOR).click();
+        driver.findElement(CLOSE_COOKIES_LOCATOR).click();
     }
 
     public void openWebsite() {
