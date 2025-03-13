@@ -1,4 +1,4 @@
-package pages;
+package pages.ui;
 
 import driver.Singleton;
 import org.openqa.selenium.By;

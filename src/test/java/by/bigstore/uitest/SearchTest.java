@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.SearchPage;
+import pages.ui.SearchPage;
 
 public class SearchTest {
     private WebDriver driver;
