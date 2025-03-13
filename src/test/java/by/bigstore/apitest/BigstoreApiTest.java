@@ -15,4 +15,5 @@ public class BigstoreApiTest {
                 .then().log().all()
                 .statusCode(200);
     }
+
 }
