@@ -1,4 +1,4 @@
-package pages;
+package pages.ui;
 
 import driver.Singleton;
 import org.openqa.selenium.By;
@@ -15,6 +15,7 @@ public class LoginPage {
     private final By PASSWORD_FIELD = By.xpath("//div[@class=\"open-logon open-login\"]//input[@id=\"password\"]");
     private final By LOGIN_BUTTON = By.xpath("//div[@class=\"open-logon open-login\"]//input[@value=\"Войти\"]");
     private final By ERROR_MESSAGE = By.xpath("//div[@class=\"messages error\"]");
+    private final By CLOSE_COOKIES_LOCATOR = By.xpath("//button[@class=\"btn btn-orange js-accept-cookies\"]");
     private final String URL = "https://7745.by/";
 
     private WebDriver driver;
@@ -25,8 +26,12 @@ public class LoginPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
-    public void open() {
+    public void openWebsite() {
         driver.get(URL);
+    }
+
+    public void closeCookies() {
+        driver.findElement(CLOSE_COOKIES_LOCATOR).click();
     }
 
     public void login(String username, String password) {
