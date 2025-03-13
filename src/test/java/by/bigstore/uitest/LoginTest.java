@@ -1,4 +1,4 @@
-package by.bigstore;
+package by.bigstore.uitest;
 
 import driver.Singleton;
 import org.junit.jupiter.api.AfterEach;

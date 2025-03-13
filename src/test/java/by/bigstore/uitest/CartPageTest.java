@@ -1,4 +1,4 @@
-package by.bigstore;
+package by.bigstore.uitest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
