@@ -12,6 +12,7 @@ import java.time.Duration;
 public class CartPage {
 
     private WebDriver driver;
+
     private WebDriverWait wait;
 
     private final By BUTTON_CATALOG_LOCATOR = By.xpath("//span[@class=\"catalog-nav-icon\"]");
